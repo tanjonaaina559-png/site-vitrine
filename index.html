@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sony WH-1000XM5 | L'expérience audio ultime</title>
+    <meta name="description" content="Découvrez le Sony WH-1000XM5, le casque à réduction de bruit active qui redéfinit les standards de l'audio haut de gamme.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ===== STYLE GLOBAL PROFESSIONNEL ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --sony-black: #0a0a0a;
+            --sony-blue: #0066cc;
+            --sony-blue-light: #4d94ff;
+            --sony-white: #ffffff;
+            --sony-offwhite: #f8f9fa;
+            --sony-gray-100: #f1f3f5;
+            --sony-gray-300: #dee2e6;
+            --sony-gray-600: #6c757d;
+            --sony-gray-800: #343a40;
+            --shadow-sm: 0 4px 12px rgba(0,0,0,0.05);
+            --shadow-md: 0 8px 24px rgba(0,0,0,0.1);
+            --shadow-lg: 0 20px 40px rgba(0,102,204,0.15);
+            --transition-fast: 200ms ease;
+            --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+            --border-radius: 32px;
+            --border-radius-sm: 16px;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--sony-offwhite);
+            color: var(--sony-gray-800);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ===== HEADER & NAVIGATION ===== */
+        .site-header {
+            background: rgba(10, 10, 10, 0.95);
+            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .header-container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0.75rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .logo-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo-sony {
+            height: 36px;
+            width: auto;
+            filter: brightness(0) invert(1);
+            transition: var(--transition-fast);
+        }
+
+        .logo-sony:hover {
+            opacity: 0.9;
+            transform: scale(1.02);
+        }
+
+        .logo-wrapper h1 {
+            color: var(--sony-white);
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            background: linear-gradient(135deg, #fff, #b3d9ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* Navigation principale */
+        .main-nav {
+            display: flex;
+            gap: 0.25rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nav-link {
+            color: #e9ecef;
+            text-decoration: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 40px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition-fast);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: transparent;
+            border: 1px solid transparent;
+        }
+
+        .nav-link i {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .nav-link:hover {
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border-color: rgba(255,255,255,0.2);
+        }
+
+        .nav-link.active {
+            background: var(--sony-blue);
+            color: white;
+            border-color: var(--sony-blue);
+        }
+
+        /* ===== MAIN CONTENT ===== */
+        .main-container {
+            max-width: 1440px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        /* Grille principale */
+        .grid-2col {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2.5rem;
+            margin-bottom: 4rem;
+        }
+
+        /* Carte de présentation */
+        .presentation-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition-base);
+        }
+
+        .presentation-card:hover {
+            box-shadow: var(--shadow-lg);
+        }
+
+        .presentation-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: var(--sony-black);
+        }
+
+        .presentation-title span {
+            color: var(--sony-blue);
+            border-bottom: 3px solid var(--sony-blue-light);
+        }
+
+        .presentation-text {
+            font-size: 1.1rem;
+            color: var(--sony-gray-600);
+            margin-bottom: 2rem;
+        }
+
+        .highlight {
+            color: var(--sony-blue);
+            font-weight: 600;
+        }
+
+        .hero-image {
+            width: 100%;
+            border-radius: 24px;
+            overflow: hidden;
+            margin: 2rem 0;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition-base);
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .hero-image:hover img {
+            transform: scale(1.02);
+        }
+
+        /* Features preview */
+        .features-preview {
+            background: var(--sony-offwhite);
+            border-radius: 24px;
+            padding: 2rem;
+            border-left: 4px solid var(--sony-blue);
+        }
+
+        .features-preview h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--sony-black);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 500;
+        }
+
+        .feature-item i {
+            color: var(--sony-blue);
+            font-size: 1.2rem;
+        }
+
+        /* Sidebar */
+        .sidebar-card {
+            background: linear-gradient(145deg, #0f0f1a, #1a1a2e);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            color: white;
+            box-shadow: var(--shadow-md);
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+        }
+
+        .video-placeholder {
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
+            margin: 1.5rem 0;
+            cursor: pointer;
+            transition: var(--transition-fast);
+        }
+
+        .video-placeholder:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: var(--sony-blue);
+        }
+
+        .video-placeholder i {
+            font-size: 4rem;
+            color: var(--sony-blue);
+            margin-bottom: 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            width: 100%;
+            padding: 1rem;
+            border-radius: 60px;
+            font-weight: 600;
+            text-align: center;
+            text-decoration: none;
+            transition: var(--transition-fast);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--sony-blue);
+            color: white;
+            box-shadow: 0 8px 16px rgba(0,102,204,0.3);
+        }
+
+        .btn-primary:hover {
+            background: #0052a3;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(0,102,204,0.5);
+        }
+
+        .btn-outline-light {
+            background: transparent;
+            border: 2px solid var(--sony-blue);
+            color: var(--sony-blue);
+        }
+
+        .btn-outline-light:hover {
+            background: var(--sony-blue);
+            color: white;
+        }
+
+        .offer-section {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px dashed rgba(255,255,255,0.2);
+        }
+
+        /* ===== BANDE INFO ===== */
+        .info-bar {
+            background: white;
+            border-radius: 80px;
+            padding: 1.5rem 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 1rem;
+            margin: 3rem 0;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 600;
+            color: var(--sony-gray-800);
+        }
+
+        .info-item i {
+            color: var(--sony-blue);
+            font-size: 1.3rem;
+        }
+
+        /* ===== FEATURES CARDS ===== */
+        .features-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .showcase-card {
+            background: white;
+            border-radius: 24px;
+            padding: 2rem;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition-base);
+            text-align: center;
+        }
+
+        .showcase-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .card-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--sony-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: white;
+            font-size: 2rem;
+        }
+
+        /* ===== FOOTER ===== */
+        .site-footer {
+            background: var(--sony-black);
+            color: #adb5bd;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: 5rem;
+        }
+
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0 1rem;
+        }
+
+        .footer-social a {
+            color: #868e96;
+            font-size: 1.5rem;
+            transition: var(--transition-fast);
+        }
+
+        .footer-social a:hover {
+            color: var(--sony-blue);
+            transform: translateY(-4px);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 900px) {
+            .grid-2col { grid-template-columns: 1fr; }
+            .sidebar-card { position: static; }
+            .header-container { flex-direction: column; gap: 1rem; }
+            .presentation-title { font-size: 2rem; }
+        }
+
+        @media (max-width: 600px) {
+            .main-container { padding: 0 1rem; }
+            .presentation-card { padding: 1.5rem; }
+            .info-bar { border-radius: 24px; flex-direction: column; align-items: flex-start; }
+        }
+
+        /* Animation */
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+            100% { transform: translateY(0); }
+        }
+
+        .float-animation {
+            animation: float 4s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-container">
+            <div class="logo-wrapper">
+                <img class="logo-sony" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Sony_logo.svg/1024px-Sony_logo.svg.png" alt="Sony">
+                <h1>WH-1000XM5</h1>
+            </div>
+            <nav class="main-nav">
+                <a href="index.html" class="nav-link active"><i class="fas fa-home"></i> Accueil</a>
+                <a href="caracteristiques.html" class="nav-link"><i class="fas fa-microchip"></i> Caractéristiques</a>
+                <a href="galerie.html" class="nav-link"><i class="fas fa-camera"></i> Galerie</a>
+                <a href="histoire.html" class="nav-link"><i class="fas fa-timeline"></i> Histoire</a>
+                <a href="utilisation.html" class="nav-link"><i class="fas fa-headphones"></i> Utilisation</a>
+                <a href="contact.html" class="nav-link"><i class="fas fa-envelope"></i> Contact</a>
+                <a href="about.html" class="nav-link"><i class="fas fa-info-circle"></i> À propos</a>
+                <a href="membres.html" class="nav-link"><i class="fas fa-users"></i> Équipe</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-container">
+        <div class="grid-2col">
+            <!-- Colonne principale -->
+            <section class="presentation-card">
+                <h2 class="presentation-title">Le <span>summum</span> de la réduction de bruit</h2>
+                <p class="presentation-text">
+                    Le <span class="highlight">Sony WH-1000XM5</span> est un casque audio sans fil à réduction de bruit active (ANC) 
+                    qui redéfinit les standards. Successeur du légendaire XM4, il marque une évolution radicale en matière de 
+                    design, de confort et de performances acoustiques.
+                </p>
+                
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                         alt="Sony WH-1000XM5 vue principale">
+                </div>
+
+                <div class="features-preview">
+                    <h3>✨ Caractéristiques clés</h3>
+                    <div class="features-grid">
+                        <div class="feature-item"><i class="fas fa-check-circle"></i> ANC à 8 micros</div>
+                        <div class="feature-item"><i class="fas fa-check-circle"></i> Processeurs QN1 + V1</div>
+                        <div class="feature-item"><i class="fas fa-check-circle"></i> Autonomie 30h</div>
+                        <div class="feature-item"><i class="fas fa-check-circle"></i> Charge rapide (3min/3h)</div>
+                        <div class="feature-item"><i class="fas fa-check-circle"></i> Contrôle tactile</div>
+                        <div class="feature-item"><i class="fas fa-check-circle"></i> Multipoint</div>
+                        <div class="feature-item"><i class="fas fa-check-circle"></i> Son LDAC</div>
+                        <div class="feature-item"><i class="fas fa-check-circle"></i> Design 250g</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sidebar (Sticky) -->
+                       <aside class="sidebar-card">
+                        <h3 style="font-size: 1.8rem; margin-bottom: 1rem;">🎬 Découvrir en vidéo</h3>
+                        <div class="video-placeholder" onclick="window.open('video/Comment_utiliser_les_commandes_tactiles_du_casque_sans_fil_Sony_WH-1000XM5_à_réduction_de_bruit(720p).mp4', '_blank')">
+                            <i class="fas fa-play-circle"></i>
+                            <p style="font-size: 1.2rem;">Regarder la démo</p>
+                            <small>Cliquez pour ouvrir</small>
+                        </div>
+                
+                <a href="#" class="btn btn-primary" onclick="alert('🔔 Redirection vers la fiche produit complète (simulation)'); return false;">
+                    <i class="fas fa-shopping-cart"></i> Acheter maintenant
+                </a>
+
+                <div class="offer-section">
+                    <h4>💥 Offre spéciale</h4>
+                    <p style="margin: 0.5rem 0 1rem;">Code <strong style="color: var(--sony-blue);">SONYPRO15</strong> : -15%</p>
+                    <a href="#" class="btn btn-outline-light" onclick="alert('Code SONYPRO15 copié ! (simulation)'); return false;">
+                        <i class="fas fa-tag"></i> Copier le code
+                    </a>
+                </div>
+            </aside>
+        </div>
+
+        <!-- Barre d'informations -->
+        <div class="info-bar">
+            <span class="info-item"><i class="fas fa-microchip"></i> Processeur HD QN1</span>
+            <span class="info-item"><i class="fas fa-battery-full"></i> 30h d'autonomie</span>
+            <span class="info-item"><i class="fas fa-bluetooth"></i> Bluetooth 5.2 / LDAC</span>
+            <span class="info-item"><i class="fas fa-magic"></i> Speak-to-Chat</span>
+        </div>
+
+        <!-- Showcase -->
+        <section class="features-showcase">
+            <div class="showcase-card">
+                <div class="card-icon"><i class="fas fa-ear-listen"></i></div>
+                <h3>Réduction de bruit inégalée</h3>
+                <p>Deux processeurs et huit microphones pour une immersion absolue.</p>
+            </div>
+            <div class="showcase-card">
+                <div class="card-icon"><i class="fas fa-music"></i></div>
+                <h3>Audio haute résolution</h3>
+                <p>LDAC, DSEE Extreme et 360 Reality Audio pour un son fidèle.</p>
+            </div>
+            <div class="showcase-card">
+                <div class="card-icon"><i class="fas fa-brain"></i></div>
+                <h3>Intelligence artificielle</h3>
+                <p>Optimisation automatique selon votre environnement.</p>
+            </div>
+            <div class="showcase-card">
+                <div class="card-icon"><i class="fas fa-feather"></i></div>
+                <h3>Confort absolu</h3>
+                <p>250g, coussinets en mousse à mémoire de forme.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>© 2025 Projet d'étude d'excellence - Tous droits réservés.</p>
+        <p>Site dédié au Sony WH-1000XM5 • Conçu avec <i class="fas fa-heart" style="color: #ff4d4d;"></i> par des passionnés</p>
+        <div class="footer-social">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+    </footer>
+</body>
+</html>
