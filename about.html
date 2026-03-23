@@ -3,60 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>À propos - Sony WH-1000XM5</title>
+    <title>À propos | Sony WH-1000XM5</title>
+    <!-- Fonts & Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        /* Base identique aux autres */
-        * { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI',Roboto,sans-serif; }
-        :root { --sony-blue:#0066cc; --sony-gray:#f5f5f5; --shadow:0 8px 20px rgba(0,0,0,0.08); }
-        body { background:var(--sony-gray); }
-        header, nav, footer { background: linear-gradient(145deg, #0a0a0a, #1a1a1a, #002244); color:white; }
-        .header-inner { max-width:1300px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; padding:1rem 2rem; }
-        .logo-sony { height:42px; filter:brightness(0) invert(1); }
-        nav { display:flex; justify-content:center; gap:0.4rem; padding:0.5rem 2rem 1rem; border-top:1px solid rgba(255,255,255,0.1); }
-        nav a { color:#ddd; text-decoration:none; padding:0.5rem 1rem; border-radius:40px; }
-        nav a:hover, nav a.active { background:var(--sony-blue); color:white; }
-        main { max-width:1300px; margin:2rem auto; padding:0 2rem; }
-        .about-hero {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=1200&q=80');
-            background-size: cover; color:white; text-align:center; padding:4rem 2rem; border-radius:40px;
-        }
-        .about-text { background:white; border-radius:32px; padding:2.5rem; margin:2rem 0; box-shadow:var(--shadow); }
-        .features-grid-about { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:2rem; margin:2rem 0; }
-        .ft-about { background:white; border-radius:24px; padding:2rem; text-align:center; }
-        footer { background:#0c0c0c; color:#aaa; text-align:center; padding:2.5rem; margin-top:3rem; }
-        .social-icons { display:flex; justify-content:center; gap:1.8rem; margin-top:1.5rem; }
-        .social-icons a { color:#aaa; font-size:1.6rem; }
-        .social-icons a:hover { color:var(--sony-blue); }
-    </style>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header>
-        <div class="header-inner"><img class="logo-sony" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Sony_logo.svg/1024px-Sony_logo.svg.png" alt="Sony"><h1 style="color:white;">À propos</h1></div>
-        <nav>
-            <a href="index.html">Accueil</a>
-            <a href="caracteristiques.html">Caractéristiques</a>
-            <a href="galerie.html">Galerie</a>
-            <a href="histoire.html">Histoire</a>
-            <a href="utilisation.html">Utilisation</a>
-            <a href="contact.html">Contact</a>
-            <a href="about.html" class="active">À propos</a>
-            <a href="Nous.html">Membres</a>
-        </nav>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Sony_logo.svg/1024px-Sony_logo.svg.png" alt="Sony">
+                <span>WH-1000XM5</span>
+            </a>
+            <nav class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="caracteristiques.html">Caractéristiques</a></li>
+                <li><a href="galerie.html">Galerie</a></li>
+                <li><a href="histoire.html">Histoire</a></li>
+                <li><a href="utilisation.html">Utilisation</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="about.html" class="active">À propos</a></li>
+                <li><a href="membres.html">Membres</a></li>
+            </nav>
+            <div class="header-actions">
+                <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
     </header>
+
     <main>
-        <section class="about-hero"><h2 style="font-size:3rem;">À propos du projet</h2><p>Site vitrine réalisé par des étudiants passionnés.</p></section>
-        <div class="about-text">
-            <h2>Notre mission</h2>
-            <p>Ce site a été créé dans le cadre d'un projet universitaire pour présenter le casque Sony WH-1000XM5, ses caractéristiques techniques, son histoire et ses fonctionnalités. Nous avons choisi ce produit car il représente une référence dans le domaine de l'audio nomade.</p>
-        </div>
-        <div class="features-grid-about">
-            <div class="ft-about"><i class="fas fa-crown" style="color:var(--sony-blue); font-size:3rem;"></i><h3>Leader du marché</h3><p>Le XM5 est salué par la critique et les utilisateurs.</p></div>
-            <div class="ft-about"><i class="fas fa-heart" style="color:var(--sony-blue); font-size:3rem;"></i><h3>Passion audio</h3><p>Nous partageons cette passion à travers ce site.</p></div>
-        </div>
+        <!-- Hero Section -->
+        <section class="hero reveal" style="min-height: 50vh;">
+            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1500&q=80" alt="About Background" class="hero-bg-media">
+            <div class="container hero-content">
+                <span class="hero-badge">Notre Mission</span>
+                <h1>Plus qu'un simple <span>produit</span></h1>
+                <p>Découvrez la passion et l'engagement qui nous ont poussé à réaliser cette étude sur le fleuron de l'audio mobile.</p>
+            </div>
+        </section>
+
+        <!-- Mission Section -->
+        <section class="section bg-white">
+            <div class="container">
+                <div class="split-layout reveal">
+                    <div class="split-content">
+                        <h2>Pourquoi ce projet ?</h2>
+                        <p>Ce site vitrine a été conçu dans le cadre d'un examen de fin d'études pour illustrer les capacités de développement web moderne, tout en rendant hommage à l'un des meilleurs produits technologiques de ces dernières années : le Sony WH-1000XM5.</p>
+                        <p>Notre objectif était de créer une expérience immersive qui reflète la qualité et le prestige de la marque Sony, en utilisant des animations fluides, un design responsive et une structure de code impeccable.</p>
+                        <a href="membres.html" class="btn btn-primary">Rencontrer l'équipe</a>
+                    </div>
+                    <div class="split-image">
+                        <img src="https://images.unsplash.com/photo-1542393545-10f5cde2c810?auto=format&fit=crop&w=800&q=80" alt="Coding">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Values Section -->
+        <section class="section">
+            <div class="container">
+                <div class="features-grid">
+                    <div class="feature-card reveal">
+                        <div class="feature-icon"><i class="fas fa-gem"></i></div>
+                        <h3>Qualité</h3>
+                        <p>Un souci du détail permanent dans chaque ligne de code.</p>
+                    </div>
+                    <div class="feature-card reveal">
+                        <div class="feature-icon"><i class="fas fa-lightbulb"></i></div>
+                        <h3>Innovation</h3>
+                        <p>Utilisation des dernières technologies web pour une expérience fluide.</p>
+                    </div>
+                    <div class="feature-card reveal">
+                        <div class="feature-icon"><i class="fas fa-users"></i></div>
+                        <h3>Passion</h3>
+                        <p>Un travail d'équipe porté par une passion commune pour le design.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
-    <footer>
-        <p>&copy; 2025 Projet étudiant</p><div class="social-icons"><a href="#"><i class="fab fa-facebook"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-instagram"></i></a></div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>© 2025 Sony WH-Project Vitrine. Tous droits réservés.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
     </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
 </body>
-</html>
+</html>

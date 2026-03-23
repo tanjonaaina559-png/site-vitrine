@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notre équipe | Sony WH-1000XM5</title>
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin: 4rem 0;
+        }
+        .member-card {
+            background: white;
+            border-radius: 24px;
+            padding: 2.5rem;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            border: 1px solid var(--gray-100);
+        }
+        .member-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+        .member-avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 1.5rem;
+            border: 4px solid var(--primary);
+            padding: 5px;
+            background: white;
+        }
+        .member-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--black);
+        }
+        .member-role {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+        }
+        .member-bio {
+            font-size: 1rem;
+            color: var(--gray-600);
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Sony_logo.svg/1024px-Sony_logo.svg.png" alt="Sony">
+                <span>WH-1000XM5</span>
+            </a>
+            <nav class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="caracteristiques.html">Caractéristiques</a></li>
+                <li><a href="galerie.html">Galerie</a></li>
+                <li><a href="histoire.html">Histoire</a></li>
+                <li><a href="utilisation.html">Utilisation</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="about.html">À propos</a></li>
+                <li><a href="membres.html" class="active">Membres</a></li>
+            </nav>
+            <div class="header-actions">
+                <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero reveal" style="min-height: 50vh;">
+            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1500&q=80" alt="Team Background" class="hero-bg-media">
+            <div class="container hero-content">
+                <span class="hero-badge">L'équipe créative</span>
+                <h1>Les architectes du <span>projet</span></h1>
+                <p>Découvrez les passionnés derrière cette étude approfondie du fleuron audio de Sony.</p>
+            </div>
+        </section>
+
+        <!-- Members Section -->
+        <section class="section">
+            <div class="container">
+                <div class="members-grid">
+                    <!-- Tanjona -->
+                    <div class="member-card reveal">
+                        <img src="Tanjona aina - 2025 mai 31 (3)/Snapchat-796761876~2.jpg" alt="Tanjona Aina" class="member-avatar" onerror="this.src='https://ui-avatars.com/api/?name=Tanjona+Aina&background=4C965B&color=fff'">
+                        <h3 class="member-name">RAMANANTSOA Tanjona Aina Fitiavana</h3>
+                        <p class="member-role">Étudiant n°25</p>
+                        <p class="member-bio">Expert en intégration frontend et design UI/UX.</p>
+                        <div class="social-links" style="justify-content: center;">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Pascal -->
+                    <div class="member-card reveal">
+                        <img src="Tanjona aina - 2025 mai 31 (2)/Pascal.jpg.jpg" alt="Pascal" class="member-avatar" onerror="this.src='https://ui-avatars.com/api/?name=Pascal&background=4C965B&color=fff'">
+                        <h3 class="member-name">RATELOLAHY Pascal</h3>
+                        <p class="member-role">Étudiant n°39</p>
+                        <p class="member-bio">Spécialiste de la structure des données et de l'optimisation.</p>
+                        <div class="social-links" style="justify-content: center;">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Tsiky -->
+                    <div class="member-card reveal">
+                        <img src="Tanjona aina - 2025 mai 31 (1)/FB_IMG_17486801062126256.jpg" alt="Tsiky Andreas" class="member-avatar" onerror="this.src='https://ui-avatars.com/api/?name=Tsiky+Andreas&background=4C965B&color=fff'">
+                        <h3 class="member-name">VOLOLONIRIANA Tsiky Andreas</h3>
+                        <p class="member-role">Étudiante n°51</p>
+                        <p class="member-bio">Responsable contenu et recherche utilisateur.</p>
+                        <div class="social-links" style="justify-content: center;">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-bottom" style="border-top: none;">
+                <p>© 2025 Sony WH-Project Vitrine. Tous droits réservés.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+</html>

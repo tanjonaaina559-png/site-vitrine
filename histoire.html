@@ -3,66 +3,195 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Histoire - Sony WH-1000XM5</title>
+    <title>Histoire | Sony WH-1000XM5</title>
+    <!-- Fonts & Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
     <style>
-        /* Même base CSS que les autres pages */
-        * { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI',Roboto,sans-serif; }
-        :root { --sony-blue:#0066cc; --sony-gray:#f5f5f5; --shadow:0 8px 20px rgba(0,0,0,0.08); }
-        body { background:var(--sony-gray); }
-        header, nav, footer { background: linear-gradient(145deg, #0a0a0a, #1a1a1a, #002244); color:white; }
-        .header-inner { max-width:1300px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; padding:1rem 2rem; }
-        .logo-sony { height:42px; filter:brightness(0) invert(1); }
-        nav { display:flex; justify-content:center; gap:0.4rem; padding:0.5rem 2rem 1rem; border-top:1px solid rgba(255,255,255,0.1); }
-        nav a { color:#ddd; text-decoration:none; padding:0.5rem 1rem; border-radius:40px; transition:0.2s; }
-        nav a:hover, nav a.active { background:var(--sony-blue); color:white; }
-        main { max-width:1300px; margin:2rem auto; padding:0 2rem; }
-        .histoire-hero {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=1200&q=80');
-            background-size: cover; color:white; text-align:center; padding:4rem 2rem; border-radius:40px; margin-bottom:3rem;
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 4rem auto;
+            padding: 2rem;
         }
-        .timeline { position:relative; max-width:900px; margin:0 auto; }
-        .timeline::before { content:''; position:absolute; left:50%; top:0; bottom:0; width:4px; background:var(--sony-blue); transform:translateX(-50%); }
-        .timeline-item { position:relative; margin:2rem 0; width:100%; display:flex; justify-content:flex-start; }
-        .timeline-item:nth-child(even) { justify-content:flex-end; }
-        .timeline-content { width:45%; background:white; padding:1.5rem; border-radius:24px; box-shadow:var(--shadow); position:relative; }
-        .timeline-item:nth-child(odd) .timeline-content::after { content:''; position:absolute; right:-10px; top:20px; width:20px; height:20px; background:white; transform:rotate(45deg); }
-        .timeline-item:nth-child(even) .timeline-content::after { content:''; position:absolute; left:-10px; top:20px; width:20px; height:20px; background:white; transform:rotate(45deg); }
-        .timeline-marker { position:absolute; left:50%; top:20px; width:18px; height:18px; background:var(--sony-blue); border-radius:50%; transform:translateX(-50%); border:3px solid white; z-index:2; }
-        .timeline-year { color:var(--sony-blue); font-weight:700; font-size:1.3rem; }
-        footer { background:#0c0c0c; color:#aaa; text-align:center; padding:2.5rem; margin-top:3rem; }
-        .social-icons { display:flex; justify-content:center; gap:1.8rem; margin-top:1.5rem; }
-        .social-icons a { color:#aaa; font-size:1.6rem; }
-        .social-icons a:hover { color:var(--sony-blue); }
-        @media (max-width:800px){ .timeline::before{left:20px;} .timeline-item{justify-content:flex-start!important;} .timeline-content{width:calc(100% - 60px); margin-left:60px;} .timeline-item .timeline-content::after{left:-10px!important; right:auto!important;} .timeline-marker{left:20px;} }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: var(--gray-200);
+        }
+        .timeline-item {
+            margin-bottom: 4rem;
+            position: relative;
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 50%;
+        }
+        .timeline-item:nth-child(even) {
+            justify-content: flex-start;
+            padding-right: 0;
+            padding-left: 50%;
+        }
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 20px;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background: var(--primary);
+            border: 4px solid white;
+            border-radius: 50%;
+            z-index: 10;
+            box-shadow: 0 0 0 4px rgba(76, 150, 91, 0.2);
+        }
+        .timeline-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 24px;
+            box-shadow: var(--shadow-sm);
+            width: 90%;
+            position: relative;
+            transition: var(--transition);
+        }
+        .timeline-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+        .timeline-year {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.25rem 1rem;
+            border-radius: 50px;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        .timeline-card h3 { margin-bottom: 0.75rem; color: var(--black); }
+        .timeline-card p { color: var(--gray-600); line-height: 1.6; }
+
+        @media (max-width: 768px) {
+            .timeline::before { left: 20px; }
+            .timeline-item { justify-content: flex-start; padding-left: 45px; padding-right: 0; }
+            .timeline-dot { left: 20px; }
+            .timeline-item:nth-child(even) { padding-left: 45px; }
+        }
     </style>
 </head>
 <body>
-    <header>
-        <div class="header-inner"><img class="logo-sony" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Sony_logo.svg/1024px-Sony_logo.svg.png" alt="Sony"><h1 style="color:white;">Histoire XM5</h1></div>
-        <nav>
-            <a href="index.html">Accueil</a>
-            <a href="caracteristiques.html">Caractéristiques</a>
-            <a href="galerie.html">Galerie</a>
-            <a href="histoire.html" class="active">Histoire</a>
-            <a href="utilisation.html">Utilisation</a>
-            <a href="contact.html">Contact</a>
-            <a href="about.html">À propos</a>
-            <a href="Nous.html">Membres</a>
-        </nav>
-    </header>
-    <main>
-        <section class="histoire-hero"><h2 style="font-size:3rem;">L'évolution de la série 1000X</h2><p>De 2016 à aujourd'hui : comment Sony a réinventé le casque à réduction de bruit.</p></section>
-        <div class="timeline">
-            <div class="timeline-item"><div class="timeline-marker"></div><div class="timeline-content"><span class="timeline-year">2016</span><h3>MDR-1000X</h3><p>Premier casque ANC de la gamme, pose les bases.</p></div></div>
-            <div class="timeline-item"><div class="timeline-marker"></div><div class="timeline-content"><span class="timeline-year">2017</span><h3>WH-1000XM2</h3><p>Amélioration de l'ANC et de l'autonomie.</p></div></div>
-            <div class="timeline-item"><div class="timeline-marker"></div><div class="timeline-content"><span class="timeline-year">2018</span><h3>WH-1000XM3</h3><p>Processeur QN1, réduction de bruit de référence.</p></div></div>
-            <div class="timeline-item"><div class="timeline-marker"></div><div class="timeline-content"><span class="timeline-year">2020</span><h3>WH-1000XM4</h3><p>Fonctions intelligentes, multipoint, design affiné.</p></div></div>
-            <div class="timeline-item"><div class="timeline-marker"></div><div class="timeline-content"><span class="timeline-year">2022</span><h3>WH-1000XM5</h3><p>Révolution design, 8 micros, double processeur.</p></div></div>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Sony_logo.svg/1024px-Sony_logo.svg.png" alt="Sony">
+                <span>WH-1000XM5</span>
+            </a>
+            <nav class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="caracteristiques.html">Caractéristiques</a></li>
+                <li><a href="galerie.html">Galerie</a></li>
+                <li><a href="histoire.html" class="active">Histoire</a></li>
+                <li><a href="utilisation.html">Utilisation</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="about.html">À propos</a></li>
+                <li><a href="membres.html">Membres</a></li>
+            </nav>
+            <div class="header-actions">
+                <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+            </div>
         </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero reveal" style="min-height: 40vh;">
+            <img src="https://images.unsplash.com/photo-1495364141860-b0d03eccd065?auto=format&fit=crop&w=1500&q=80" alt="History Background" class="hero-bg-media">
+            <div class="container hero-content">
+                <span class="hero-badge">L'Héritage Sony</span>
+                <h1>Une quête vers la <span>perfection</span></h1>
+                <p>Découvrez l'évolution de la gamme WH-1000X, de la première itération révolutionnaire au fleuron actuel.</p>
+            </div>
+        </section>
+
+        <!-- Timeline Section -->
+        <section class="section">
+            <div class="container">
+                <div class="timeline">
+                    <!-- 2016 -->
+                    <div class="timeline-item reveal">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <span class="timeline-year">2016</span>
+                            <h3>MDR-1000X : La Genèse</h3>
+                            <p>Sony lance son premier casque à réduction de bruit active haut de gamme pour concurrencer les leaders historiques du secteur. Un succès immédiat.</p>
+                        </div>
+                    </div>
+
+                    <!-- 2017 -->
+                    <div class="timeline-item reveal">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <span class="timeline-year">2017</span>
+                            <h3>WH-1000XM2 : L'Affinement</h3>
+                            <p>Amélioration de la gestion de la pression atmosphérique et augmentation significative de l'autonomie. Le nom "WH" remplace "MDR".</p>
+                        </div>
+                    </div>
+
+                    <!-- 2018 -->
+                    <div class="timeline-item reveal">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <span class="timeline-year">2018</span>
+                            <h3>WH-1000XM3 : Le Sacre</h3>
+                            <p>Introduction du processeur HD QN1. Sony prend officiellement la tête du marché grâce à une réduction de bruit inégalée et le passage à l'USB-C.</p>
+                        </div>
+                    </div>
+
+                    <!-- 2020 -->
+                    <div class="timeline-item reveal">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <span class="timeline-year">2020</span>
+                            <h3>WH-1000XM4 : L'Intelligence</h3>
+                            <p>Même design, mais ajout du multipoint, du "Speak-to-Chat" et d'une intelligence artificielle améliorée pour le traitement du signal sonore.</p>
+                        </div>
+                    </div>
+
+                    <!-- 2022 -->
+                    <div class="timeline-item reveal">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <span class="timeline-year">2022</span>
+                            <h3>WH-1000XM5 : La Révolution</h3>
+                            <p>Changement radical de design. 8 microphones, double processeur (V1 + QN1) et une qualité d'appel cristalline. Le nouveau standard absolu.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
-    <footer>
-        <p>&copy; 2025 Projet étudiant</p><div class="social-icons"><a href="#"><i class="fab fa-facebook"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-instagram"></i></a></div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>© 2025 Sony WH-Project Vitrine. Tous droits réservés.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
     </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
 </body>
 </html>

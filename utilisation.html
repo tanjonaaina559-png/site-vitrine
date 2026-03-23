@@ -3,67 +3,191 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Utilisation - Sony WH-1000XM5</title>
+    <title>Utilisation | Sony WH-1000XM5</title>
+    <!-- Fonts & Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
     <style>
-        /* Base identique aux autres */
-        * { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI',Roboto,sans-serif; }
-        :root { --sony-blue:#0066cc; --sony-gray:#f5f5f5; --shadow:0 8px 20px rgba(0,0,0,0.08); --transition:0.25s; }
-        body { background:var(--sony-gray); }
-        header, nav, footer { background: linear-gradient(145deg, #0a0a0a, #1a1a1a, #002244); color:white; }
-        .header-inner { max-width:1300px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; padding:1rem 2rem; }
-        .logo-sony { height:42px; filter:brightness(0) invert(1); }
-        nav { display:flex; justify-content:center; gap:0.4rem; padding:0.5rem 2rem 1rem; border-top:1px solid rgba(255,255,255,0.1); }
-        nav a { color:#ddd; text-decoration:none; padding:0.5rem 1rem; border-radius:40px; }
-        nav a:hover, nav a.active { background:var(--sony-blue); color:white; }
-        main { max-width:1300px; margin:2rem auto; padding:0 2rem; }
-        .hero-usage {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=1200&q=80');
-            background-size: cover; color:white; text-align:center; padding:4rem 2rem; border-radius:40px; margin-bottom:2rem;
+        .guide-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
         }
-        .step-container { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:2rem; margin:3rem 0; }
-        .step-card { background:white; border-radius:24px; padding:2rem; box-shadow:var(--shadow); transition:var(--transition); }
-        .step-card:hover { transform:translateY(-5px); }
-        .step-number { width:50px; height:50px; background:var(--sony-blue); color:white; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.8rem; font-weight:700; margin-bottom:1rem; }
-        .tip-list { background:white; border-radius:32px; padding:2rem; margin-top:3rem; }
-        .tip-item { display:flex; gap:1.5rem; align-items:center; border-bottom:1px solid #eee; padding:1rem 0; }
-        .tip-icon { width:50px; height:50px; background:var(--sony-blue); border-radius:50%; display:flex; align-items:center; justify-content:center; color:white; font-size:1.5rem; flex-shrink:0; }
-        footer { background:#0c0c0c; color:#aaa; text-align:center; padding:2.5rem; margin-top:3rem; }
-        .social-icons { display:flex; justify-content:center; gap:1.8rem; margin-top:1.5rem; }
-        .social-icons a { color:#aaa; font-size:1.6rem; }
-        .social-icons a:hover { color:var(--sony-blue); }
+        .guide-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 24px;
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        .guide-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+        .guide-number {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            font-size: 5rem;
+            font-weight: 900;
+            color: var(--gray-100);
+            line-height: 1;
+            z-index: 1;
+        }
+        .guide-content { position: relative; z-index: 2; }
+        .guide-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            color: white;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .guide-card h3 { margin-bottom: 1rem; color: var(--black); }
+        .guide-card p { color: var(--gray-600); font-size: 0.95rem; line-height: 1.6; }
+
+        .tips-section {
+            background: var(--black);
+            color: white;
+            border-radius: 32px;
+            padding: 4rem;
+            margin: 4rem 0;
+        }
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+        .tip-item h4 { color: var(--primary); margin-bottom: 1rem; font-size: 1.2rem; }
+        .tip-item p { color: var(--gray-300); font-size: 0.95rem; }
     </style>
 </head>
 <body>
-    <header>
-        <div class="header-inner"><img class="logo-sony" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Sony_logo.svg/1024px-Sony_logo.svg.png" alt="Sony"><h1 style="color:white;">Utilisation</h1></div>
-        <nav>
-            <a href="index.html">Accueil</a>
-            <a href="caracteristiques.html">Caractéristiques</a>
-            <a href="galerie.html">Galerie</a>
-            <a href="histoire.html">Histoire</a>
-            <a href="utilisation.html" class="active">Utilisation</a>
-            <a href="contact.html">Contact</a>
-            <a href="about.html">À propos</a>
-            <a href="Nous.html">Membres</a>
-        </nav>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Sony_logo.svg/1024px-Sony_logo.svg.png" alt="Sony">
+                <span>WH-1000XM5</span>
+            </a>
+            <nav class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="caracteristiques.html">Caractéristiques</a></li>
+                <li><a href="galerie.html">Galerie</a></li>
+                <li><a href="histoire.html">Histoire</a></li>
+                <li><a href="utilisation.html" class="active">Utilisation</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="about.html">À propos</a></li>
+                <li><a href="membres.html">Membres</a></li>
+            </nav>
+            <div class="header-actions">
+                <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
     </header>
+
     <main>
-        <section class="hero-usage"><h2 style="font-size:3rem;">Guide d'utilisation</h2><p>Maîtrisez toutes les fonctionnalités de votre WH-1000XM5.</p></section>
-        <div class="step-container">
-            <div class="step-card"><div class="step-number">1</div><h3>Allumage & appairage</h3><p>Maintenez le bouton power 2s, puis sélectionnez le casque dans vos paramètres Bluetooth.</p></div>
-            <div class="step-card"><div class="step-number">2</div><h3>Réduction de bruit</h3><p>Appuyez sur le bouton NC/AMB pour basculer entre ANC, mode bruit du vent ou mode transparent.</p></div>
-            <div class="step-card"><div class="step-number">3</div><h3>Commandes tactiles</h3><p>Glissez vers l'avant/arrière pour changer de piste, touchez deux fois pour play/pause, couvrez l'oreillette pour parler.</p></div>
-            <div class="step-card"><div class="step-number">4</div><h3>Application Sony</h3><p>Téléchargez Sony Headphones Connect pour personnaliser l'égaliseur et les fonctions.</p></div>
-        </div>
-        <div class="tip-list">
-            <div class="tip-item"><div class="tip-icon"><i class="fas fa-mobile-alt"></i></div><div><strong>Speak-to-Chat</strong> : le casque met automatiquement la musique en pause quand vous parlez.</div></div>
-            <div class="tip-item"><div class="tip-icon"><i class="fas fa-battery-full"></i></div><div><strong>Autonomie record</strong> : 30h avec ANC ; 3min de charge = 3h d'écoute.</div></div>
-            <div class="tip-item"><div class="tip-icon"><i class="fas fa-headset"></i></div><div><strong>Mode filaire</strong> : utilisez le câble jack même si la batterie est vide.</div></div>
-        </div>
+        <!-- Hero Section -->
+        <section class="hero reveal" style="min-height: 40vh;">
+            <img src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=1500&q=80" alt="Usage Background" class="hero-bg-media">
+            <div class="container hero-content">
+                <span class="hero-badge">Guide Interactif</span>
+                <h1>Maîtrisez votre <span>expérience</span></h1>
+                <p>Apprenez à utiliser les fonctions avancées et les gestes tactiles pour une immersion totale.</p>
+            </div>
+        </section>
+
+        <!-- Guide Section -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2>Prise en main rapide</h2>
+                    <p>Quatre étapes simples pour commencer à profiter de votre casque.</p>
+                </div>
+
+                <div class="guide-grid">
+                    <div class="guide-card reveal">
+                        <div class="guide-number">01</div>
+                        <div class="guide-content">
+                            <div class="guide-icon"><i class="fas fa-bluetooth"></i></div>
+                            <h3>Connexion Multipoint</h3>
+                            <p>Appairez deux appareils simultanément. Le casque basculera intelligemment entre votre téléphone et votre ordinateur.</p>
+                        </div>
+                    </div>
+                    <div class="guide-card reveal">
+                        <div class="guide-number">02</div>
+                        <div class="guide-content">
+                            <div class="guide-icon"><i class="fas fa-fingerprint"></i></div>
+                            <h3>Commandes Tactiles</h3>
+                            <p>Glissez vers le haut/bas pour le volume, et vers l'avant/arrière pour changer de piste sur l'oreillette droite.</p>
+                        </div>
+                    </div>
+                    <div class="guide-card reveal">
+                        <div class="guide-number">03</div>
+                        <div class="guide-content">
+                            <div class="guide-icon"><i class="fas fa-microphone-lines"></i></div>
+                            <h3>Speak-to-Chat</h3>
+                            <p>Commencez à parler et la musique s'arrêtera automatiquement pour laisser passer les voix environnantes.</p>
+                        </div>
+                    </div>
+                    <div class="guide-card reveal">
+                        <div class="guide-number">04</div>
+                        <div class="guide-content">
+                            <div class="guide-icon"><i class="fas fa-sliders"></i></div>
+                            <h3>App Sony Connect</h3>
+                            <p>Personnalisez votre égaliseur, mettez à jour le firmware et configurez l'audio spatial 360 Reality Audio.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tips Section -->
+        <section class="section">
+            <div class="container">
+                <div class="tips-section reveal">
+                    <div class="tips-grid">
+                        <div class="tip-item">
+                            <h4>Attention rapide</h4>
+                            <p>Posez votre main sur l'oreillette droite pour baisser instantanément le volume et entendre votre entourage sans retirer le casque.</p>
+                        </div>
+                        <div class="tip-item">
+                            <h4>Optimiseur NC</h4>
+                            <p>Le casque analyse la forme de votre visage et la pression atmosphérique pour recalibrer la réduction de bruit en temps réel.</p>
+                        </div>
+                        <div class="tip-item">
+                            <h4>Détection de port</h4>
+                            <p>Un capteur de proximité sait quand vous retirez le casque et met votre musique en pause pour économiser de l'énergie.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
-    <footer>
-        <p>&copy; 2025 Projet étudiant</p><div class="social-icons"><a href="#"><i class="fab fa-facebook"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-instagram"></i></a></div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>© 2025 Sony WH-Project Vitrine. Tous droits réservés.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
     </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
 </body>
 </html>

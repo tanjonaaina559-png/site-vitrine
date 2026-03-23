@@ -3,81 +3,215 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - Sony WH-1000XM5</title>
+    <title>Contact | Sony WH-1000XM5</title>
+    <!-- Fonts & Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
     <style>
-        /* Même base que précédemment */
-        * { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI',Roboto,sans-serif; }
-        :root { --sony-blue:#0066cc; --sony-gray:#f5f5f5; --shadow:0 8px 20px rgba(0,0,0,0.08); }
-        body { background:var(--sony-gray); }
-        header, nav, footer { background: linear-gradient(145deg, #0a0a0a, #1a1a1a, #002244); color:white; }
-        .header-inner { max-width:1300px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; padding:1rem 2rem; }
-        .logo-sony { height:42px; filter:brightness(0) invert(1); }
-        nav { display:flex; justify-content:center; gap:0.4rem; padding:0.5rem 2rem 1rem; border-top:1px solid rgba(255,255,255,0.1); }
-        nav a { color:#ddd; text-decoration:none; padding:0.5rem 1rem; border-radius:40px; }
-        nav a:hover, nav a.active { background:var(--sony-blue); color:white; }
-        main { max-width:1300px; margin:2rem auto; padding:0 2rem; }
-        .contact-hero {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=1200&q=80');
-            background-size: cover; color:white; text-align:center; padding:4rem 2rem; border-radius:40px; margin-bottom:2rem;
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 3rem;
+            margin: 4rem 0;
         }
-        .contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:2rem; margin:3rem 0; }
-        .contact-info { background:white; border-radius:32px; padding:2.5rem; box-shadow:var(--shadow); }
-        .contact-info h3 { font-size:2rem; margin-bottom:1.5rem; position:relative; }
-        .contact-info h3::after { content:''; width:70px; height:4px; background:var(--sony-blue); display:block; margin-top:8px; }
-        .contact-item { display:flex; align-items:center; gap:1rem; margin:1.5rem 0; }
-        .contact-icon { width:50px; height:50px; background:var(--sony-blue); border-radius:50%; display:flex; align-items:center; justify-content:center; color:white; font-size:1.3rem; }
-        .form-container { background:white; border-radius:32px; padding:2.5rem; box-shadow:var(--shadow); }
-        .form-group { margin-bottom:1.5rem; }
-        label { font-weight:600; display:block; margin-bottom:0.3rem; }
-        input, textarea, select { width:100%; padding:0.8rem 1rem; border:1px solid #ddd; border-radius:16px; }
-        button { background:var(--sony-blue); color:white; border:none; padding:1rem 2rem; border-radius:40px; font-weight:600; cursor:pointer; transition:0.2s; }
-        button:hover { background:#004c99; }
-        footer { background:#0c0c0c; color:#aaa; text-align:center; padding:2.5rem; margin-top:3rem; }
-        .social-icons { display:flex; justify-content:center; gap:1.8rem; margin-top:1.5rem; }
-        .social-icons a { color:#aaa; font-size:1.6rem; }
-        .social-icons a:hover { color:var(--sony-blue); }
-        @media (max-width:800px){ .contact-grid{grid-template-columns:1fr;} }
+        .contact-info-card {
+            background: var(--black);
+            color: white;
+            padding: 3rem;
+            border-radius: 24px;
+            box-shadow: var(--shadow-lg);
+        }
+        .contact-info-card h2 { color: white; margin-bottom: 2rem; }
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(76, 150, 91, 0.2);
+            color: var(--primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+        .info-text h4 { color: white; margin-bottom: 0.25rem; font-size: 1.1rem; }
+        .info-text p { color: var(--gray-200); font-size: 0.95rem; }
+
+        .contact-form-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 24px;
+            box-shadow: var(--shadow-md);
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--black);
+        }
+        .form-control {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid var(--gray-200);
+            border-radius: 12px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(76, 150, 91, 0.1);
+        }
+        textarea.form-control { resize: none; min-height: 150px; }
+
+        @media (max-width: 992px) {
+            .contact-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
-    <header>
-        <div class="header-inner"><img class="logo-sony" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Sony_logo.svg/1024px-Sony_logo.svg.png" alt="Sony"><h1 style="color:white;">Contact</h1></div>
-        <nav>
-            <a href="index.html">Accueil</a>
-            <a href="caracteristiques.html">Caractéristiques</a>
-            <a href="galerie.html">Galerie</a>
-            <a href="histoire.html">Histoire</a>
-            <a href="utilisation.html">Utilisation</a>
-            <a href="contact.html" class="active">Contact</a>
-            <a href="about.html">À propos</a>
-            <a href="Nous.html">Membres</a>
-        </nav>
-    </header>
-    <main>
-        <section class="contact-hero"><h2 style="font-size:3rem;">Contactez-nous</h2><p>Une question ? L'équipe Sony XM5 vous répond.</p></section>
-        <div class="contact-grid">
-            <div class="contact-info">
-                <h3>Informations</h3>
-                <div class="contact-item"><div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>1 Rue Sony, 105 Antananarivo</div>
-                <div class="contact-item"><div class="contact-icon"><i class="fas fa-phone"></i></div>+261 34 78 139 26</div>
-                <div class="contact-item"><div class="contact-icon"><i class="fas fa-envelope"></i></div>tanjonaaina559@gmail.com</div>
-                <div class="contact-item"><div class="contact-icon"><i class="fas fa-clock"></i></div>Lun-Ven 9h-18h</div>
-            </div>
-            <div class="form-container">
-                <h3>Écrivez-nous</h3>
-                <form onsubmit="alert('Message envoyé (simulation)'); return false;">
-                    <div class="form-group"><label>Nom</label><input type="text" required></div>
-                    <div class="form-group"><label>Email</label><input type="email" required></div>
-                    <div class="form-group"><label>Sujet</label><select><option>Support</option><option>Vente</option><option>Garantie</option></select></div>
-                    <div class="form-group"><label>Message</label><textarea rows="4" required></textarea></div>
-                    <button type="submit"><i class="fas fa-paper-plane"></i> Envoyer</button>
-                </form>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Sony_logo.svg/1024px-Sony_logo.svg.png" alt="Sony">
+                <span>WH-1000XM5</span>
+            </a>
+            <nav class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="caracteristiques.html">Caractéristiques</a></li>
+                <li><a href="galerie.html">Galerie</a></li>
+                <li><a href="histoire.html">Histoire</a></li>
+                <li><a href="utilisation.html">Utilisation</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+                <li><a href="about.html">À propos</a></li>
+                <li><a href="membres.html">Membres</a></li>
+            </nav>
+            <div class="header-actions">
+                <button class="menu-toggle"><i class="fas fa-bars"></i></button>
             </div>
         </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero reveal" style="min-height: 40vh;">
+            <img src="https://images.unsplash.com/photo-1534536281715-e28d76689b4d?auto=format&fit=crop&w=1500&q=80" alt="Contact Background" class="hero-bg-media">
+            <div class="container hero-content">
+                <span class="hero-badge">Support Client</span>
+                <h1>À votre <span>écoute</span></h1>
+                <p>Besoin d'aide ou d'informations supplémentaires ? Notre équipe est là pour vous accompagner.</p>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="section">
+            <div class="container">
+                <div class="contact-grid">
+                    <!-- Info Column -->
+                    <div class="contact-info-card reveal">
+                        <h2>Coordonnées</h2>
+                        <div class="info-item">
+                            <div class="info-icon"><i class="fas fa-location-dot"></i></div>
+                            <div class="info-text">
+                                <h4>Adresse</h4>
+                                <p>123 Boulevard Audio, 75000 Madagascar</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon"><i class="fas fa-phone"></i></div>
+                            <div class="info-text">
+                                <h4>Téléphone</h4>
+                                <p>+261 34 78 139 26</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon"><i class="fas fa-envelope"></i></div>
+                            <div class="info-text">
+                                <h4>Email</h4>
+                                <p>tanjonaaina559@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon"><i class="fas fa-clock"></i></div>
+                            <div class="info-text">
+                                <h4>Horaires</h4>
+                                <p>Lun - Ven: 9h00 - 18h00</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Form Column -->
+                    <div class="contact-form-card reveal">
+                        <form onsubmit="alert('Message envoyé ! Nous vous répondrons sous peu.'); return false;">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Votre Nom</label>
+                                    <input type="text" class="form-control" placeholder="Tanjona Aina" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Votre Email</label>
+                                    <input type="email" class="form-control" placeholder="nom@exemple.com" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Sujet</label>
+                                    <select class="form-control">
+                                        <option>Demande d'information</option>
+                                        <option>Support technique</option>
+                                        <option>Partenariat</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Téléphone</label>
+                                    <input type="tel" class="form-control" placeholder="+261 ...">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Votre Message</label>
+                                <textarea class="form-control" placeholder="Comment pouvons-nous vous aider ?" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">Envoyer le message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
-    <footer>
-        <p>&copy; 2025 Projet étudiant</p><div class="social-icons"><a href="#"><i class="fab fa-facebook"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-instagram"></i></a></div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>© 2025 Sony WH-Project Vitrine. Tous droits réservés.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
     </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
 </body>
+</html>
+>
 </html>

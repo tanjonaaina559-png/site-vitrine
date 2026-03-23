@@ -5,148 +5,186 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Caractéristiques techniques | Sony WH-1000XM5</title>
     <meta name="description" content="Fiche technique complète du Sony WH-1000XM5 : autonomie, connectivité, codecs, réduction de bruit.">
+    <!-- Fonts & Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
     <style>
-        /* ===== RÉUTILISATION DU STYLE GLOBAL ===== */
-        * { margin:0; padding:0; box-sizing:border-box; }
-        :root {
-            --sony-black: #0a0a0a; --sony-blue: #0066cc; --sony-blue-light: #4d94ff;
-            --sony-white: #ffffff; --sony-offwhite: #f8f9fa; --sony-gray-300: #dee2e6;
-            --sony-gray-600: #6c757d; --sony-gray-800: #343a40;
-            --shadow-sm: 0 4px 12px rgba(0,0,0,0.05); --shadow-md: 0 8px 24px rgba(0,0,0,0.1);
-            --border-radius: 32px; --border-radius-sm: 16px;
-            --transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+        /* Custom styles for specs table */
+        .specs-table-wrapper {
+            background: white;
+            border-radius: 24px;
+            padding: 3rem;
+            box-shadow: var(--shadow-md);
+            margin: 4rem 0;
         }
-        body { font-family: 'Inter', system-ui, sans-serif; background: var(--sony-offwhite); color: var(--sony-gray-800); }
-        /* Header & Footer identiques à l'index (réutiliser le code du header/footer) */
-        .site-header { background: rgba(10,10,10,0.95); backdrop-filter: blur(12px); position: sticky; top:0; z-index:1000; border-bottom:1px solid rgba(255,255,255,0.1); }
-        .header-container { max-width:1440px; margin:0 auto; padding:0.75rem 2rem; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; }
-        .logo-wrapper { display:flex; align-items:center; gap:0.75rem; }
-        .logo-sony { height:36px; filter:brightness(0) invert(1); }
-        .logo-wrapper h1 { color:white; font-size:1.5rem; background:linear-gradient(135deg, #fff, #b3d9ff); -webkit-background-clip:text; background-clip:text; color:transparent; }
-        .main-nav { display:flex; gap:0.25rem; flex-wrap:wrap; }
-        .nav-link { color:#e9ecef; text-decoration:none; padding:0.6rem 1.2rem; border-radius:40px; font-weight:500; display:inline-flex; align-items:center; gap:0.5rem; border:1px solid transparent; transition:200ms; }
-        .nav-link:hover { background:rgba(255,255,255,0.1); color:white; border-color:rgba(255,255,255,0.2); }
-        .nav-link.active { background:var(--sony-blue); color:white; border-color:var(--sony-blue); }
-        
-        .main-container { max-width:1440px; margin:3rem auto; padding:0 2rem; }
-        
-        /* Hero spécifique */
-        .hero-specs {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=1400&q=80');
-            background-size: cover; background-position: center; border-radius: var(--border-radius);
-            padding: 4rem 2rem; color: white; text-align: center; margin-bottom: 3rem;
+        .specs-table {
+            width: 100%;
+            border-collapse: collapse;
         }
-        .hero-specs h2 { font-size: 3rem; margin-bottom: 1rem; }
-        .hero-specs p { font-size: 1.2rem; max-width: 700px; margin: 0 auto; opacity: 0.9; }
-        
-        /* Tableau de specs */
-        .specs-panel {
-            background: white; border-radius: var(--border-radius); padding: 2.5rem;
-            box-shadow: var(--shadow-md); margin-bottom: 3rem;
+        .specs-table th {
+            text-align: left;
+            padding: 1.5rem;
+            background: var(--gray-100);
+            color: var(--black);
+            font-weight: 700;
+            font-size: 1.1rem;
+            border-bottom: 2px solid var(--gray-200);
         }
-        .specs-panel h2 { font-size: 2.2rem; margin-bottom: 2rem; position: relative; }
-        .specs-panel h2::after { content: ''; position: absolute; bottom: -8px; left: 0; width: 80px; height: 4px; background: var(--sony-blue); border-radius: 4px; }
-        
-        table { width: 100%; border-collapse: collapse; }
-        th { background: var(--sony-blue); color: white; padding: 1rem; text-align: left; font-size: 1.1rem; }
-        td { padding: 1rem; border-bottom: 1px solid #eee; }
-        tr:nth-child(even) { background: #fafafa; }
-        tr:hover td { background: #e8f0fe; }
-        
-        .feature-grid-3 {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;
-            margin: 3rem 0;
+        .specs-table td {
+            padding: 1.2rem 1.5rem;
+            border-bottom: 1px solid var(--gray-100);
+            font-size: 1.05rem;
         }
-        .feature-card {
-            background: white; padding: 2rem; border-radius: 24px; box-shadow: var(--shadow-sm);
-            transition: var(--transition);
+        .specs-table tr:hover td {
+            background: rgba(76, 150, 91, 0.05);
         }
-        .feature-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
-        .feature-icon {
-            width: 70px; height: 70px; background: var(--sony-blue); border-radius: 50%;
-            display: flex; align-items: center; justify-content: center; color: white;
-            font-size: 2rem; margin-bottom: 1.2rem;
+        .specs-category {
+            font-weight: 600;
+            color: var(--primary);
+            width: 35%;
         }
-        
-        .site-footer { background: var(--sony-black); color: #adb5bd; padding: 3rem 2rem; text-align: center; margin-top: 5rem; }
-        .footer-social { display: flex; justify-content: center; gap: 2rem; margin: 2rem 0 1rem; }
-        .footer-social a { color: #868e96; font-size: 1.5rem; transition:200ms; }
-        .footer-social a:hover { color: var(--sony-blue); transform: translateY(-4px); }
-        
-        @media (max-width:700px){ .hero-specs h2{font-size:2rem;} }
     </style>
 </head>
 <body>
+    <!-- Header -->
     <header class="site-header">
-        <div class="header-container">
-            <div class="logo-wrapper"><img class="logo-sony" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Sony_logo.svg/1024px-Sony_logo.svg.png" alt="Sony"><h1>WH-1000XM5</h1></div>
-            <nav class="main-nav">
-                <a href="index.html" class="nav-link">Accueil</a>
-                <a href="caracteristiques.html" class="nav-link active">Caractéristiques</a>
-                <a href="galerie.html" class="nav-link">Galerie</a>
-                <a href="histoire.html" class="nav-link">Histoire</a>
-                <a href="utilisation.html" class="nav-link">Utilisation</a>
-                <a href="contact.html" class="nav-link">Contact</a>
-                <a href="about.html" class="nav-link">À propos</a>
-                <a href="membres.html" class="nav-link">Équipe</a>
+        <div class="container header-inner">
+            <a href="index.html" class="logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Sony_logo.svg/1024px-Sony_logo.svg.png" alt="Sony">
+                <span>WH-1000XM5</span>
+            </a>
+            <nav class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="caracteristiques.html" class="active">Caractéristiques</a></li>
+                <li><a href="galerie.html">Galerie</a></li>
+                <li><a href="histoire.html">Histoire</a></li>
+                <li><a href="utilisation.html">Utilisation</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="about.html">À propos</a></li>
+                <li><a href="membres.html">Membres</a></li>
             </nav>
+            <div class="header-actions">
+                <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+            </div>
         </div>
     </header>
 
-    <main class="main-container">
-        <section class="hero-specs">
-            <h2>Spécifications techniques</h2>
-            <p>Plongez dans les détails qui font du WH-1000XM5 une référence absolue.</p>
+    <main>
+        <!-- Hero Section -->
+        <section class="hero reveal" style="min-height: 60vh;">
+            <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=1400&q=80" alt="Specs Background" class="hero-bg-media">
+            <div class="container hero-content">
+                <span class="hero-badge">Fiche Technique</span>
+                <h1>Spécifications <span>Exceptionnelles</span></h1>
+                <p>Plongez dans les détails techniques qui font du XM5 la référence absolue de l'industrie audio.</p>
+            </div>
         </section>
 
-        <div class="specs-panel">
-            <h2>Fiche technique complète</h2>
-            <table>
-                <tr><th>Caractéristique</th><th>Détail</th></tr>
-                <tr><td>Poids</td><td>250 g</td></tr>
-                <tr><td>Autonomie (ANC activée)</td><td>30 heures</td></tr>
-                <tr><td>Autonomie (ANC désactivée)</td><td>40 heures</td></tr>
-                <tr><td>Temps de charge complet</td><td>3 heures (USB-C)</td></tr>
-                <tr><td>Charge rapide</td><td>3 minutes = 3 heures d'écoute</td></tr>
-                <tr><td>Réduction de bruit</td><td>8 microphones + processeurs QN1 / V1</td></tr>
-                <tr><td>Bluetooth</td><td>Version 5.2 / Multipoint</td></tr>
-                <tr><td>Codecs audio</td><td>SBC, AAC, LDAC</td></tr>
-                <tr><td>Réponse en fréquence</td><td>4 Hz – 40 000 Hz (filaire)</td></tr>
-                <tr><td>Driver</td><td>30 mm (dôme en carbone)</td></tr>
-                <tr><td>Connectique</td><td>Jack 3.5 mm + USB-C</td></tr>
-                <tr><td>Assistant vocal</td><td>Google Assistant / Alexa intégrés</td></tr>
-                <tr><td>Application compagnon</td><td>Sony Headphones Connect</td></tr>
-            </table>
-        </div>
+        <!-- Specs Table -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2>Détails techniques</h2>
+                    <p>Chaque composant a été méticuleusement conçu pour une performance sans compromis.</p>
+                </div>
+                
+                <div class="specs-table-wrapper reveal">
+                    <table class="specs-table">
+                        <thead>
+                            <tr>
+                                <th>Caractéristique</th>
+                                <th>Détail Technique</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td class="specs-category">Poids</td><td>Environ 250 g</td></tr>
+                            <tr><td class="specs-category">Type de casque</td><td>Foncé, fermé, dynamique</td></tr>
+                            <tr><td class="specs-category">Diaphragme</td><td>30 mm (Dôme en fibre de carbone)</td></tr>
+                            <tr><td class="specs-category">Réponse en fréquence</td><td>4 Hz - 40 000 Hz</td></tr>
+                            <tr><td class="specs-category">Autonomie (ANC ON)</td><td>Max. 30 heures</td></tr>
+                            <tr><td class="specs-category">Autonomie (ANC OFF)</td><td>Max. 40 heures</td></tr>
+                            <tr><td class="specs-category">Temps de charge</td><td>Environ 3,5 heures</td></tr>
+                            <tr><td class="specs-category">Charge rapide</td><td>3 min = 3 heures d'écoute</td></tr>
+                            <tr><td class="specs-category">Version Bluetooth</td><td>Bluetooth 5.2 (Multipoint)</td></tr>
+                            <tr><td class="specs-category">Codecs supportés</td><td>SBC, AAC, LDAC</td></tr>
+                            <tr><td class="specs-category">Réduction de bruit</td><td>HD QN1 + Processeur intégré V1</td></tr>
+                            <tr><td class="specs-category">Microphone</td><td>8 micros pour la réduction, 4 pour la voix</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
 
-        <div class="feature-grid-3">
-            <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-volume-mute"></i></div>
-                <h3>ANC nouvelle génération</h3>
-                <p>Double processeur et 8 micros pour une isolation sonore absolue, même dans les environnements les plus bruyants.</p>
+        <!-- Features Grid -->
+        <section class="section bg-dark">
+            <div class="container">
+                <div class="features-grid">
+                    <div class="feature-card reveal">
+                        <div class="feature-icon"><i class="fas fa-volume-xmark"></i></div>
+                        <h3>ANC à 8 Micros</h3>
+                        <p>Une réduction de bruit inédite capturant les sons ambiants avec une précision chirurgicale.</p>
+                    </div>
+                    <div class="feature-card reveal">
+                        <div class="feature-icon"><i class="fas fa-wave-square"></i></div>
+                        <h3>Hi-Res Audio Wireless</h3>
+                        <p>Grâce au codec LDAC, profitez d'une qualité sonore proche de la perfection filaire, sans les câbles.</p>
+                    </div>
+                    <div class="feature-card reveal">
+                        <div class="feature-icon"><i class="fas fa-battery-three-quarters"></i></div>
+                        <h3>Endurance Maximale</h3>
+                        <p>Jusqu'à 30 heures de musique non-stop pour vous accompagner dans tous vos voyages.</p>
+                    </div>
+                </div>
             </div>
-            <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-music"></i></div>
-                <h3>Audio haute résolution</h3>
-                <p>LDAC, DSEE Extreme et diaphragme en carbone pour restituer chaque nuance de vos morceaux préférés.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-bolt"></i></div>
-                <h3>Charge ultra-rapide</h3>
-                <p>3 minutes de charge vous offrent 3 heures d'écoute. Parfait pour les voyageurs pressés.</p>
-            </div>
-        </div>
+        </section>
     </main>
 
+    <!-- Footer -->
     <footer class="site-footer">
-        <p>© 2025 Projet d'étude d'excellence - Tous droits réservés.</p>
-        <div class="footer-social">
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-youtube"></i></a>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Sony_logo.svg/1024px-Sony_logo.svg.png" alt="Sony">
+                        <span>WH-1000XM5</span>
+                    </a>
+                    <p>Projet d'excellence réalisé pour l'examen de développement web 2025.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="caracteristiques.html">Caractéristiques</a></li>
+                        <li><a href="galerie.html">Galerie</a></li>
+                        <li><a href="histoire.html">Histoire</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="utilisation.html">Utilisation</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="about.html">À propos</a></li>
+                        <li><a href="membres.html">Membres</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Réseaux</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Sony WH-Project Vitrine. Tous droits réservés.</p>
+            </div>
         </div>
     </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
 </body>
 </html>
